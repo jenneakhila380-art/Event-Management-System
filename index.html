@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Eventify | Discover Events</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#" class="logo">
+            Event<span>ify</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="pages/events.html">Explore Events</a>
+            <a href="#categories">Categories</a>
+            <a href="#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="signup-btn">Get Started</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+    </header>
+
+    <!--Hero Section-->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                YOUR NEXT EXPERIENCE STARTS HERE
+            </span>
+
+            <h1>
+                Discover Events.<br>
+                <span>Create Memories.</span>
+            </h1>
+
+            <p>
+                Find exciting events, connect with people,
+                and make every moment unforgettable.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="pages/events.html" class=" primary-btn">
+                    Explore Events →
+                </a>
+
+                <a href="#about" class="secondary-btn">
+                    Learn More
+                </a>
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+            <div class="image-card">
+                <div class="image-overlay">
+                    <span>UPCOMING EXPERIENCE</span>
+                    <h3>Something Amazing<br>Is Waiting For You</h3>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!--Search Section-->
+    <section class="search-section">
+
+        <div class="search-box">
+            <div class="search-item">
+                <label>What are you looking for?</label>
+                <input
+                    type="text"
+                    placeholder="Search events..."
+                    id="searchInput"
+                >
+            </div>
+
+            <div class="search-item">
+                <label>Location</label>
+                <input
+                    type="text"
+                    placeholder="Enter city"
+                    id="locationInput"
+                >
+            </div>
+
+            <button class="search-btn" id="searchBtn">
+                Search Events
+            </button>
+        </div>
+
+    </section>
+
+    <!--Categories -->
+    <section class="categories section" id="categories">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">EXPLORE</span>
+                <h2>Browse by Category</h2>
+            </div>
+
+            <a href="pages/events.html" class="view-all">
+                View All →
+            </a>
+        </div>
+
+        <div class="category-grid">
+
+            <a href="pages/events.html?category=music"class="category-card">
+                <div class="category-icon">🎵</div>
+                <h3>Music</h3>
+                <p>Concerts & festivals</p>
+            </a>
+
+            <a href="pages/events.html?category=technology"class="category-card">
+                <div class="category-icon">💻</div>
+                <h3>Technology</h3>
+                <p>Tech talks & workshops</p>
+            </a>
+
+            <a href="pages/events.html?category=arts"class="category-card">
+                <div class="category-icon">🎨</div>
+                <h3>Arts</h3>
+                <p>Creative experiences</p>
+            </a>
+
+            <a href="pages/events.html?category=education"class="category-card">
+                <div class="category-icon">🎓</div>
+                <h3>Education</h3>
+                <p>Learning & seminars</p>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!--Featured Events-->
+    <section class="events section" id="events">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-label">DON'T MISS OUT</span>
+                <h2>Featured Events</h2>
+            </div>
+
+            <a href="pages/events.html" class="view-all">
+                Explore All →
+            </a>
+        </div>
+
+        <div class="event-grid">
+
+            <article class="event-card">
+                <div class="event-image event-one">
+                    <span class="event-tag">TECHNOLOGY</span>
+                </div>
+
+                <div class="event-info">
+                    <p class="event-date">DEC 15, 2026</p>
+                    <h3>Future Tech Summit</h3>
+                    <p class="event-location">📍 Hyderabad, India</p>
+                    <div class="event-bottom">
+                        <span>₹299</span>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="event-card">
+                <div class="event-image event-two">
+                    <span class="event-tag">MUSIC</span>
+                </div>
+
+                <div class="event-info">
+                    <p class="event-date">DEC 20, 2026</p>
+                    <h3>Live Music Night</h3>
+                    <p class="event-location">📍 Hyderabad, India</p>
+                    <div class="event-bottom">
+                        <span>₹499</span>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="event-card">
+                <div class="event-image event-three">
+                    <span class="event-tag">EDUCATION</span>
+                </div>
+
+                <div class="event-info">
+                    <p class="event-date">DEC 25, 2026</p>
+                    <h3>Creative Design Workshop</h3>
+                    <p class="event-location">📍 Hyderabad, India</p>
+                    <div class="event-bottom">
+                        <span>Free</span>
+                        <a href="#">View Details →</a>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+    <!--About Section -->
+    <section class="about-section section" id="about">
+
+        <div class="about-content">
+            <span class="section-label">ABOUT EVENTIFY</span>
+
+            <h2>
+                Your Gateway to<br>
+                <span>Unforgettable Experiences</span>
+            </h2>
+
+            <p>
+                Eventify makes discovering, organizing, and
+                attending events simple. From exciting concerts
+                to educational workshops, everything you need
+                is in one place.
+            </p>
+
+            <a href="#events" class="primary-btn">
+                Start Exploring →
+            </a>
+        </div>
+
+    </section>
+
+    <!--Footer -->
+    <footer class="footer">
+
+        <div class="footer-content">
+            <a href="#" class="logo">
+                Event<span>ify</span>
+            </a>
+
+            <p>
+                Discover events. Create memories.
+            </p>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Eventify. All rights reserved.
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

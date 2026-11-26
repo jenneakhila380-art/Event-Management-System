@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Explore Events | Eventify</title>
+
+    <!-- Homepage styles -->
+    <link rel="stylesheet" href="../style.css">
+
+    <!-- Explore Events page styles -->
+    <link rel="stylesheet" href="../css/events.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+
+        <a href="../index.html" class="logo">
+            Event<span>ify</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="../index.html">Home</a>
+            <a href="events.html" class="active">Explore Events</a>
+            <a href="../index.html#categories">Categories</a>
+            <a href="../index.html#about">About</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a href="#" class="login-btn">Login</a>
+            <a href="#" class="signup-btn">Get Started</a>
+        </div>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- Explore Hero -->
+    <section class="explore-hero">
+
+        <div class="explore-hero-content">
+
+            <span class="section-label">
+                FIND YOUR NEXT EXPERIENCE
+            </span>
+
+            <h1>
+                Explore Amazing
+                <span>Events</span>
+            </h1>
+
+            <p>
+                Discover concerts, workshops, conferences,
+                and unforgettable experiences happening around you.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Search Bar -->
+    <section class="explore-search-section">
+
+        <div class="explore-search-box">
+
+            <div class="search-field">
+
+                <label for="eventSearch">
+                    Search Events
+                </label>
+
+                <input
+                    type="text"
+                    id="eventSearch"
+                    placeholder="Search event name..."
+                >
+
+            </div>
+
+
+            <div class="search-field">
+
+                <label for="eventLocation">
+                    Location
+                </label>
+
+                <input
+                    type="text"
+                    id="eventLocation"
+                    placeholder="Enter city..."
+                >
+
+            </div>
+
+
+            <button class="explore-search-btn" id="searchBtn">
+                Search Events
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Events Section -->
+    <section class="explore-section">
+
+        <div class="explore-heading">
+
+            <div>
+                <span class="section-label">
+                    DISCOVER
+                </span>
+
+                <h2>Upcoming Events</h2>
+
+                <p>
+                    Find the perfect event for your interests.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- Category Filters -->
+        <div class="category-filters" id="categoryFilters">
+
+            <button class="filter-btn active" data-category="all">
+                All Events
+            </button>
+
+            <button class="filter-btn" data-category="technology">
+                Technology
+            </button>
+
+            <button class="filter-btn" data-category="music">
+                Music
+            </button>
+
+            <button class="filter-btn" data-category="education">
+                Education
+            </button>
+
+            <button class="filter-btn" data-category="arts">
+                Arts
+            </button>
+
+            <button class="filter-btn" data-category="business">
+                Business
+            </button>
+
+        </div>
+
+
+        <!-- Filters and Sort -->
+        <div class="events-toolbar">
+
+            <div class="results-count">
+                <span id="eventCount">6</span>
+                events found
+            </div>
+
+            <div class="toolbar-controls">
+
+                <select id="priceFilter">
+                    <option value="all">All Prices</option>
+                    <option value="free">Free Events</option>
+                    <option value="paid">Paid Events</option>
+                </select>
+
+                <select id="sortEvents">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Event Name</option>
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <!-- Event Cards -->
+        <div class="explore-event-grid" id="eventGrid">
+
+
+            <!-- Event 1 -->
+            <article
+                class="explore-event-card"
+                data-category="technology"
+                data-price="299"
+                data-name="Future Tech Summit"
+                data-location="Hyderabad"
+            >
+
+                <div class="explore-event-image event-image-one">
+
+                    <span class="explore-event-tag">
+                        TECHNOLOGY
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        DEC 15, 2026
+                    </span>
+
+                    <h3>Future Tech Summit</h3>
+
+                    <p class="explore-event-location">
+                        📍 Hyderabad, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price">
+                            ₹299
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Event 2 -->
+            <article
+                class="explore-event-card"
+                data-category="music"
+                data-price="499"
+                data-name="Live Music Night"
+                data-location="Hyderabad"
+            >
+
+                <div class="explore-event-image event-image-two">
+
+                    <span class="explore-event-tag">
+                        MUSIC
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        DEC 20, 2026
+                    </span>
+
+                    <h3>Live Music Night</h3>
+
+                    <p class="explore-event-location">
+                        📍 Hyderabad, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price">
+                            ₹499
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Event 3 -->
+            <article
+                class="explore-event-card"
+                data-category="education"
+                data-price="0"
+                data-name="Creative Design Workshop"
+                data-location="Hyderabad"
+            >
+
+                <div class="explore-event-image event-image-three">
+
+                    <span class="explore-event-tag">
+                        EDUCATION
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        DEC 25, 2026
+                    </span>
+
+                    <h3>Creative Design Workshop</h3>
+
+                    <p class="explore-event-location">
+                        📍 Hyderabad, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Event 4 -->
+            <article
+                class="explore-event-card"
+                data-category="arts"
+                data-price="199"
+                data-name="Art and Culture Festival"
+                data-location="Bangalore"
+            >
+
+                <div class="explore-event-image event-image-four">
+
+                    <span class="explore-event-tag">
+                        ARTS
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        JAN 05, 2027
+                    </span>
+
+                    <h3>Art and Culture Festival</h3>
+
+                    <p class="explore-event-location">
+                        📍 Bangalore, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price">
+                            ₹199
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Event 5 -->
+            <article
+                class="explore-event-card"
+                data-category="business"
+                data-price="799"
+                data-name="Startup Networking Meet"
+                data-location="Chennai"
+            >
+
+                <div class="explore-event-image event-image-five">
+
+                    <span class="explore-event-tag">
+                        BUSINESS
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        JAN 10, 2027
+                    </span>
+
+                    <h3>Startup Networking Meet</h3>
+
+                    <p class="explore-event-location">
+                        📍 Chennai, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price">
+                            ₹799
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- Event 6 -->
+            <article
+                class="explore-event-card"
+                data-category="technology"
+                data-price="0"
+                data-name="Web Development Bootcamp"
+                data-location="Pune"
+            >
+
+                <div class="explore-event-image event-image-six">
+
+                    <span class="explore-event-tag">
+                        TECHNOLOGY
+                    </span>
+
+                </div>
+
+                <div class="explore-event-info">
+
+                    <span class="explore-event-date">
+                        JAN 15, 2027
+                    </span>
+
+                    <h3>Web Development Bootcamp</h3>
+
+                    <p class="explore-event-location">
+                        📍 Pune, India
+                    </p>
+
+                    <div class="explore-event-bottom">
+
+                        <span class="event-price free-price">
+                            Free
+                        </span>
+
+                        <a href="#" class="event-details-link">
+                            View Details →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- No Results -->
+        <div class="no-events" id="noEvents">
+
+            <h3>No Events Found</h3>
+
+            <p>
+                Try changing your search or filters.
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="footer-content">
+
+            <a href="../index.html" class="logo">
+                Event<span>ify</span>
+            </a>
+
+            <p>
+                Discover events. Create memories.
+            </p>
+
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Eventify. All rights reserved.
+        </div>
+
+    </footer>
+
+
+    <!-- Explore Events JavaScript -->
+    <script src="../js/events.js"></script>
+
+</body>
+
+</html>
