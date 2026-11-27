@@ -1,0 +1,227 @@
+/* EVENT DETAILS PAGE */
+
+.event-details-page {
+    background: #f8f7fc;
+    min-height: 100vh;
+}
+
+/* EVENT BANNER */
+
+.event-details-banner {
+    min-height: 350px;
+    display: flex;
+    align-items: center;
+    padding: 60px 8%;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 20, 60, 0.92),
+            rgba(100, 55, 180, 0.85)
+        ),
+        url("https://images.unsplash.com/photo-1540575467063-178a50c2df87")
+        center/cover no-repeat;
+    color: white;
+}
+
+.event-details-banner-content {
+    max-width: 750px;
+}
+
+.event-category {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #a78bfa;
+    color: white;
+    border-radius: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.event-details-banner h1 {
+    font-size: 48px;
+    margin-bottom: 18px;
+    line-height: 1.2;
+}
+
+.event-details-banner p {
+    font-size: 17px;
+    color: #e9e2ff;
+    line-height: 1.7;
+}
+
+/* MAIN CONTENT */
+
+.event-details-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 35px;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 25px;
+}
+
+.event-details-main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.event-info-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.event-info-card h2 {
+    font-size: 24px;
+    color: #1f1635;
+    margin-bottom: 20px;
+}
+
+.event-info-card p {
+    color: #666;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* EVENT SCHEDULE */
+
+.schedule-item {
+    display: flex;
+    gap: 25px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-item span {
+    color: #7c3aed;
+    font-weight: 600;
+    min-width: 100px;
+}
+
+.schedule-item p {
+    margin: 0;
+}
+
+/* BOOKING CARD */
+
+.event-booking-card {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    height: fit-content;
+    position: sticky;
+    top: 30px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+}
+
+.event-booking-card h2 {
+    font-size: 22px;
+    color: #1f1635;
+    margin-bottom: 25px;
+}
+
+.booking-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.booking-info span {
+    color: #888;
+    font-size: 14px;
+}
+
+.booking-info strong {
+    color: #29213d;
+    font-size: 16px;
+}
+
+/* BOOK TICKET BUTTON */
+
+.book-ticket-btn {
+    width: 100%;
+    padding: 15px;
+    margin-top: 25px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-ticket-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+/* BACK LINK */
+
+.back-events-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #7c3aed;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.back-events-link:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 900px) {
+
+    .event-details-container {
+        grid-template-columns: 1fr;
+    }
+
+    .event-booking-card {
+        position: static;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .event-details-banner {
+        min-height: 280px;
+        padding: 45px 6%;
+    }
+
+    .event-details-banner h1 {
+        font-size: 32px;
+    }
+
+    .event-details-banner p {
+        font-size: 15px;
+    }
+
+    .event-details-container {
+        margin: 35px auto;
+        padding: 0 15px;
+    }
+
+    .event-info-card,
+    .event-booking-card {
+        padding: 22px;
+    }
+
+    .schedule-item {
+        gap: 15px;
+    }
+
+}

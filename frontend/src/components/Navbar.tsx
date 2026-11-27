@@ -30,12 +30,17 @@ export const Navbar: React.FC = () => {
           About
         </a>
       </nav>
-
       <div className="nav-buttons">
-        <button className="login-btn">Login</button>
-        <button className="signup-btn">Get Started</button>
-      </div>
+  <Link to="/login" className="login-btn" onClick={closeMenu}>
+    Login
+  </Link>
 
+  <Link to="/register" className="signup-btn" onClick={closeMenu}>
+    Get Started
+  </Link>
+</div>
+
+      
       <button className="menu-btn" id="menuBtn" onClick={toggleMenu} aria-label="Toggle Navigation">
         {menuOpen ? '✕' : '☰'}
       </button>

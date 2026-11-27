@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { EventItem } from '../types/event';
 
 interface EventCardProps {
@@ -51,9 +52,12 @@ export const EventCard: React.FC<EventCardProps> = ({ event, variant = 'explore'
           <span className={`event-price ${isFree ? 'free-price' : ''}`}>
             {priceDisplay}
           </span>
-          <a href="#" className="event-details-link">
-            View Details →
-          </a>
+          <Link
+           to={`/event-details/${event.id}`}
+            className="event-details-link"
+>
+          View Details →
+          </Link>
         </div>
       </div>
     </article>

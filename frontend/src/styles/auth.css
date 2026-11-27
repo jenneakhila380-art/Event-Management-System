@@ -1,0 +1,122 @@
+/* Login and Register Page */
+
+.auth-page {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: #f5f7fb;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 430px;
+  padding: 35px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.auth-card > p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-card label {
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+.auth-card input {
+  padding: 13px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  font-size: 15px;
+  outline: none;
+}
+
+.auth-card input:focus {
+  border-color: #6c63ff;
+}
+
+.auth-card button {
+  padding: 13px;
+  background: #6c63ff;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-card button:hover {
+  background: #554bdc;
+}
+
+.auth-switch {
+  margin-top: 22px;
+  text-align: center;
+  color: #555;
+}
+
+.auth-switch a {
+  color: #6c63ff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 22px 0;
+  color: #888;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+
+.google-login-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  background: white !important;
+  color: #333 !important;
+  border: 1px solid #ddd !important;
+  border-radius: 7px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.google-login-btn:hover {
+  background: #f5f5f5 !important;
+}
+
+.google-icon {
+  font-size: 20px;
+  font-weight: bold;
+  color: #4285F4;
+}

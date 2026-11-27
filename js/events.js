@@ -2,6 +2,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Event cards from Explore Events HTML
     const eventCards = document.querySelectorAll(".explore-event-card");
+    // Connect View Details buttons
+    eventCards.forEach(function (card) {
+
+        const detailsLink = card.querySelector(".event-details-link");
+
+        detailsLink.addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            const params = new URLSearchParams();
+
+            params.set("title", card.dataset.name);
+            params.set("category", card.dataset.category);
+
+            // Get event date from HTML
+            const eventDate = card.querySelector(".explore-event-date");
+            params.set("date", eventDate.textContent.trim());
+
+            params.set("location", card.dataset.location);
+            params.set("price", card.dataset.price);
+
+            window.location.href =
+                "event-details.html?" + params.toString();
+
+        });
+
+    });
 
     // Search elements
     const eventSearch = document.getElementById("eventSearch");
