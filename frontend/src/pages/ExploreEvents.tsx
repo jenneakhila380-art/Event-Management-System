@@ -53,19 +53,37 @@ export const ExploreEvents: React.FC = () => {
 
   // Filter and Sort in clean declarative React
   const filteredEvents = useMemo(() => {
+    const sTerm = searchTerm.toLowerCase().trim();
+    const lTerm = locationTerm.toLowerCase().trim();
+
     return events
       .filter((event) => {
-        const matchesName = event.title.toLowerCase().includes(searchTerm.toLowerCase().trim());
-        const matchesLocation = event.location.toLowerCase().includes(locationTerm.toLowerCase().trim());
-        const matchesCategory =
-          selectedCategory === 'all' || event.category.toLowerCase() === selectedCategory.toLowerCase();
+        const eventTitle = (event.title || '').toLowerCase();
+        const eventCategory = (event.category || '').toLowerCase();
+        const eventDesc = (event.description || '').toLowerCase();
+        const eventLocation = (event.location || '').toLowerCase();
 
+        // Match search across title, category, or description (handles "music", "tech", "summit", etc.)
+        const matchesSearch =
+          !sTerm ||
+          eventTitle.includes(sTerm) ||
+          eventCategory.includes(sTerm) ||
+          eventDesc.includes(sTerm);
+
+        // Match city / location loosely (e.g. "Hyderabad", "India", "Pune")
+        const matchesLocation = !lTerm || eventLocation.includes(lTerm);
+
+        // Match category tab
+        const matchesCategory =
+          selectedCategory === 'all' || eventCategory === selectedCategory.toLowerCase();
+
+        // Match price
         const numPrice = Number(event.price);
         let matchesPrice = true;
         if (priceFilter === 'free') matchesPrice = numPrice === 0;
         if (priceFilter === 'paid') matchesPrice = numPrice > 0;
 
-        return matchesName && matchesLocation && matchesCategory && matchesPrice;
+        return matchesSearch && matchesLocation && matchesCategory && matchesPrice;
       })
       .sort((a, b) => {
         if (sortOption === 'price-low') return Number(a.price) - Number(b.price);
@@ -74,6 +92,15 @@ export const ExploreEvents: React.FC = () => {
         return 0;
       });
   }, [events, searchTerm, locationTerm, selectedCategory, priceFilter, sortOption]);
+
+  const handleSearchClick = (e?: React.MouseEvent | React.FormEvent) => {
+    if (e) e.preventDefault();
+    const params = new URLSearchParams();
+    if (searchTerm.trim()) params.set('search', searchTerm.trim());
+    if (locationTerm.trim()) params.set('location', locationTerm.trim());
+    if (selectedCategory && selectedCategory !== 'all') params.set('category', selectedCategory);
+    setSearchParams(params);
+  };
 
   const handleCategoryClick = (category: string) => {
     setSelectedCategory(category);
@@ -104,7 +131,7 @@ export const ExploreEvents: React.FC = () => {
 
       {/* Search Bar */}
       <section className="explore-search-section">
-        <div className="explore-search-box">
+        <form className="explore-search-box" onSubmit={handleSearchClick}>
           <div className="search-field">
             <label htmlFor="eventSearch">Search Events</label>
             <input
@@ -128,13 +155,13 @@ export const ExploreEvents: React.FC = () => {
           </div>
 
           <button
+            type="submit"
             className="explore-search-btn"
             id="searchBtn"
-            onClick={() => {}}
           >
             Search Events
           </button>
-        </div>
+        </form>
       </section>
 
       {/* Main Events Section */}

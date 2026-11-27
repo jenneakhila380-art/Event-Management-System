@@ -7,8 +7,19 @@ export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchLocation, setSearchLocation] = useState('');
+  const [featuredEvents, setFeaturedEvents] = useState<any[]>(INITIAL_EVENTS.slice(0, 3));
 
-  const featuredEvents = INITIAL_EVENTS.slice(0, 3);
+  // Sync featured events if backend is running
+  React.useEffect(() => {
+    fetch('http://localhost:5001/api/events?featured=true')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (data?.events?.length) {
+          setFeaturedEvents(data.events);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   const handleHeroSearch = (e: React.FormEvent) => {
     e.preventDefault();
