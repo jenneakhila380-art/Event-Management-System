@@ -23,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
     // Read category only when homepage sends one
     const urlParams = new URLSearchParams(window.location.search);
     const requestedCategory = urlParams.get("category");
+    const requestedSearch= urlParams.get("search") ||"";
+    const requestedLocation=urlParams.get("location") ||"";
 
     let selectedCategory = "all";
 
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const eventCategory = card.dataset.category;
             const eventPrice = Number(card.dataset.price);
 
-            const matchesSearch = eventName.includes(searchText);
+            const matchesSearch = eventName.includes(searchText)||eventCategory.includes(searchText);
 
             const matchesLocation =
                 eventLocationName.includes(locationText);
@@ -187,8 +189,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
     });
+    // Get search values from homepage URL
+if (requestedSearch) {
+    eventSearch.value = requestedSearch;
+}
 
-    // Display events when page opens
-    filterEvents();
+if (requestedLocation) {
+    eventLocation.value = requestedLocation;
+}
+// Display and filter events when page opens
+filterEvents();
+
+// If search came from homepage, scroll to events section
+if (requestedSearch || requestedLocation) {
+    setTimeout(function () {
+        const eventsSection = document.querySelector(".explore-section");
+
+        if (eventsSection) {
+            eventsSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+        }
+    }, 300);
+}
 
 });
+
