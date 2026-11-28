@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { INITIAL_EVENTS } from '../data/mockEvents';
+import { useNavigate } from 'react-router-dom';
 
 function EventDetails() {
   const { eventId } = useParams();
+  const navigate = useNavigate();
 
   const event = INITIAL_EVENTS.find(
     (item) => item.id === Number(eventId)
@@ -48,7 +50,7 @@ function EventDetails() {
 
           <button
             className="book-ticket-btn"
-            onClick={() => alert('Booking feature coming soon!')}
+            onClick={() => navigate(`/book-ticket/${event.id}`)}
           >
             Book Ticket
           </button>

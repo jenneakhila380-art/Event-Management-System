@@ -8,8 +8,11 @@ const Register: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleRegister = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleRegister = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
     if (password !== confirmPassword) {
@@ -17,8 +20,40 @@ const Register: React.FC = () => {
       return;
     }
 
-    alert('Registration successful!');
-    navigate('/login');
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        'http://localhost:5001/api/auth/signup',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.error || 'Registration failed!');
+        return;
+      }
+
+      alert('Registration successful! Please login.');
+      navigate('/login');
+
+    } catch (error) {
+      console.error('Registration error:', error);
+      alert('Unable to connect to the server. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -64,7 +99,9 @@ const Register: React.FC = () => {
             required
           />
 
-          <button type="submit">Create Account</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Creating Account...' : 'Create Account'}
+          </button>
         </form>
 
         <div className="auth-divider">
@@ -74,7 +111,9 @@ const Register: React.FC = () => {
         <button
           type="button"
           className="google-login-btn"
-          onClick={() => alert('Google registration will be available soon!')}
+          onClick={() =>
+            alert('Google registration will be available soon!')
+          }
         >
           <span className="google-icon">G</span>
           Continue with Google

@@ -6,19 +6,55 @@ const Login: React.FC = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
-  const handleLogin = (e:
-     React.SyntheticEvent<HTMLFormElement>) => {
+  const handleLogin = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
     e.preventDefault();
 
-    // Temporary login validation
     if (!email || !password) {
       alert('Please enter your email and password');
       return;
     }
 
-    alert('Login successful!');
-    navigate('/events');
+    try {
+      setLoading(true);
+
+      const response = await fetch(
+        'http://localhost:5001/api/auth/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        alert(data.error || 'Invalid email or password');
+        return;
+      }
+
+      // Save login details after successful authentication
+      localStorage.setItem('token', data.token);
+      localStorage.setItem('user', JSON.stringify(data.user));
+
+      alert('Login successful!');
+      navigate('/events');
+
+    } catch (error) {
+      console.error('Login error:', error);
+      alert('Unable to connect to the server. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -46,20 +82,24 @@ const Login: React.FC = () => {
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Logging in...' : 'Login'}
+          </button>
 
           <div className="auth-divider">
-           <span>OR</span>
+            <span>OR</span>
           </div>
 
           <button
-          type="button"
-          className="google-login-btn"
-          onClick={() => alert('Google login will be available soon!')}
->
-         <span className="google-icon">G</span>
-          Continue with Google
-         </button>
+            type="button"
+            className="google-login-btn"
+            onClick={() =>
+              alert('Google login will be available soon!')
+            }
+          >
+            <span className="google-icon">G</span>
+            Continue with Google
+          </button>
         </form>
 
         <p className="auth-switch">

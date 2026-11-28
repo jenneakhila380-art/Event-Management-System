@@ -7,6 +7,9 @@ import { ExploreEvents } from './pages/ExploreEvents';
 import EventDetails from './pages/EventDetails';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import BookTicket from './pages/BookTicket';
+import MyBookings from './pages/MyBookings';
+import BookingConfirmation from './pages/BookingConfirmation';
 
 export const App: React.FC = () => {
   return (
@@ -28,6 +31,15 @@ export const App: React.FC = () => {
           />
           <Route path="/login" element={<Login />}  />
           <Route path="/register" element={<Register />} />
+          <Route 
+          path="/book-ticket/:eventId"
+          element={<BookTicket />} 
+          />
+          <Route path="/my-bookings"
+           element={<MyBookings />} 
+           />
+           <Route path="/booking-confirmation" 
+           element={<BookingConfirmation />} />
         </Routes>
       </main>
 
